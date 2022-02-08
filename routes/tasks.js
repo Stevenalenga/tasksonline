@@ -10,7 +10,7 @@ const {
   editTasks,
 } = require("../controllers/tasks");
 
-router.route("./").get(getallTasks).post(createTasks);
+router.route("/").get(getallTasks).post(createTasks);
 router
   .route("/:id")
   .get(getTask)

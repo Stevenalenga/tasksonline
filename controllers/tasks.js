@@ -11,6 +11,7 @@ const createTasks = async (req, res) => {
 const getallTasks = async (req, res) => {
   try {
     const tasks = await Task.find({});
+    res.status(200).json({ tasks });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
@@ -28,7 +29,7 @@ const getTask = async (req, res) => {
   }
 };
 
-const deleteTasks = (req, res) => {
+const deleteTasks = async (req, res) => {
   try {
     const { id: taskID } = req.params;
     const task = await Task.findOneAndDelete({ id: taskID });
