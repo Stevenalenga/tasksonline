@@ -4,6 +4,7 @@ const connectdb = require("./database/connect");
 require("dotenv").config();
 const Task = require("./models/taskSchema");
 const notFound = require("./middleware/not-found");
+const errorHandlerMiddleware = require("./middleware/errorHandler");
 
 //middleware
 app.use(express.json());
@@ -72,6 +73,7 @@ app.put("/:id", async (req, res) => {
 });
 
 app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 const port = 3000;
 
